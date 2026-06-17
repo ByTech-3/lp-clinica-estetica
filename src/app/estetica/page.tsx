@@ -10,7 +10,7 @@ import PrecosSection        from '@/components/estetica/PrecosSection'
 import ObjecoesSection      from '@/components/estetica/ObjecoesSection'
 import CTAFinal             from '@/components/estetica/CTAFinal'
 import Footer               from '@/components/estetica/Footer'
-import MobileWABar          from '@/components/estetica/MobileWABar'
+import { WHATSAPP_URL }     from '@/lib/constants'
 
 export default function EsteticaPage() {
   return (
@@ -27,7 +27,18 @@ export default function EsteticaPage() {
       <ObjecoesSection />
       <CTAFinal />
       <Footer />
-      <MobileWABar />
+
+      {/* Sticky mobile CTA bar */}
+      <div className="sticky-mobile">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn--white btn--full"
+        >
+          Quero meu diagnóstico gratuito →
+        </a>
+      </div>
     </main>
   )
 }

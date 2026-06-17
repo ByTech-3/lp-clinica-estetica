@@ -22,39 +22,20 @@ const faqs = [
   },
 ]
 
-function AccordionItem({ q, a }: { q: string; a: string }) {
+function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
-
   return (
-    <div className="border-b border-gray-200 py-5">
+    <div className="faq-item">
       <button
+        className="faq-question"
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center gap-4 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1A2F4B]"
         aria-expanded={open}
       >
-        <span className="font-display font-semibold text-[#1A2F4B] text-lg leading-snug">
-          {q}
-        </span>
-        <span
-          className="text-xl font-bold shrink-0 transition-transform duration-300 leading-none"
-          style={{
-            color: '#D4AF37',
-            transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
-          }}
-          aria-hidden="true"
-        >
-          +
-        </span>
+        <span>{q}</span>
+        <span className={`faq-toggle${open ? ' faq-toggle--open' : ''}`} aria-hidden="true">+</span>
       </button>
-
-      <div
-        className="overflow-hidden transition-all duration-300"
-        style={{ maxHeight: open ? '400px' : '0px' }}
-        aria-hidden={!open}
-      >
-        <p className="text-base font-body leading-relaxed text-[#4F4F4F] mt-3">
-          {a}
-        </p>
+      <div className={`faq-answer${open ? ' faq-answer--open' : ''}`} aria-hidden={!open}>
+        <p className="faq-answer-inner">{a}</p>
       </div>
     </div>
   )
@@ -65,21 +46,14 @@ export default function ObjecoesSection() {
   const listRef  = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="bg-[#F8F7F4] py-20 md:py-28" aria-label="Perguntas frequentes">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section section--off" aria-label="Perguntas frequentes">
+      <div className="container">
         <span className="gold-line" />
 
-        <h2
-          ref={titleRef}
-          className="reveal text-3xl md:text-4xl font-display font-bold leading-tight text-[#0D1B2E] mb-10"
-        >
-          Perguntas frequentes
-        </h2>
+        <h2 ref={titleRef} className="h2 reveal">Perguntas frequentes</h2>
 
-        <div ref={listRef} className="reveal max-w-3xl">
-          {faqs.map((faq) => (
-            <AccordionItem key={faq.q} q={faq.q} a={faq.a} />
-          ))}
+        <div ref={listRef} className="faq-list reveal" style={{ maxWidth: '720px' }}>
+          {faqs.map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
         </div>
       </div>
     </section>

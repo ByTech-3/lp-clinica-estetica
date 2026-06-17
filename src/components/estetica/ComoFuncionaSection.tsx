@@ -27,64 +27,28 @@ export default function ComoFuncionaSection() {
   const ctaRef   = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="bg-white py-20 md:py-28" aria-label="Como funciona">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section section--white" aria-label="Como funciona">
+      <div className="container">
         <span className="gold-line" />
 
-        <h2
-          ref={titleRef}
-          className="reveal text-3xl md:text-4xl font-display font-bold leading-tight text-[#0D1B2E] mb-14"
-        >
-          Como funciona
-        </h2>
+        <h2 ref={titleRef} className="h2 reveal">Como funciona</h2>
 
-        {/* Steps */}
-        <div
-          ref={stepsRef}
-          className="reveal stagger grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-14"
-        >
-          {steps.map((s, i) => (
-            <div key={s.num} className="flex flex-col">
-              {/* Número + linha conectora */}
-              <div className="flex items-center gap-4 mb-4">
-                <span
-                  className="text-5xl font-display font-extrabold leading-none"
-                  style={{ color: '#D4AF37' }}
-                >
-                  {s.num}
-                </span>
-                {/* Linha conectora apenas entre os números no desktop */}
-                {i < steps.length - 1 && (
-                  <div
-                    className="hidden md:block flex-1 border-t border-dashed"
-                    style={{ borderColor: 'rgba(212,175,55,0.3)' }}
-                    aria-hidden="true"
-                  />
-                )}
-              </div>
-              <h3 className="text-xl font-display font-bold text-[#1A2F4B] mb-3">
-                {s.title}
-              </h3>
-              <p className="text-base font-body leading-relaxed text-[#4F4F4F]">
-                {s.body}
-              </p>
+        <div ref={stepsRef} className="steps-grid reveal stagger">
+          {steps.map((s) => (
+            <div key={s.num}>
+              <p className="step-number">{s.num}</p>
+              <p className="step-title">{s.title}</p>
+              <p className="step-body">{s.body}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA intermediário */}
-        <div ref={ctaRef} className="reveal flex justify-center">
+        <div ref={ctaRef} className="steps-cta reveal">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              font-body font-semibold text-[#1A2F4B]
-              border-2 border-[#1A2F4B] px-8 py-3.5 rounded-xl
-              transition-all duration-200
-              hover:bg-[#1A2F4B] hover:text-white hover:-translate-y-0.5
-              focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1A2F4B]
-            "
+            className="btn btn--outline"
           >
             Quero ver o volume de busca na minha cidade →
           </a>

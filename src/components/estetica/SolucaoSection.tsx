@@ -8,26 +8,20 @@ export default function SolucaoSection() {
   const boxRef   = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="bg-[#1A2F4B] py-20 md:py-28" aria-label="A solução ByTech3">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs md:text-sm font-body font-semibold tracking-widest uppercase text-[#D4AF37] mb-4">
-          A ByTech3
-        </p>
+    <section className="section section--navy" aria-label="A solução ByTech3">
+      <div className="container">
+        <span className="eyebrow">A ByTech3</span>
 
-        <h2
-          ref={titleRef}
-          className="reveal text-3xl md:text-4xl font-display font-extrabold leading-tight text-white mb-6 max-w-3xl"
-        >
-          A máquina que coloca sua clínica na frente
-          de quem já decidiu fazer o{' '}
-          <span className="gold-shimmer">procedimento</span>.
+        <h2 ref={titleRef} className="h2 reveal" style={{ maxWidth: '760px' }}>
+          A máquina que coloca sua clínica na frente de quem já decidiu fazer
+          o <span className="gold-shimmer">procedimento</span>.
         </h2>
 
-        <div ref={bodyRef} className="reveal space-y-4 mb-8 max-w-2xl">
-          <p className="font-body font-semibold text-white text-lg md:text-xl">
+        <div ref={bodyRef} className="reveal" style={{ maxWidth: '640px' }}>
+          <p style={{ fontWeight: 600, fontSize: '1.125rem', color: '#fff', marginBottom: '0.75rem' }}>
             Não criamos desejo. Capturamos quem já tem.
           </p>
-          <p className="text-base md:text-lg font-body leading-relaxed text-white/80">
+          <p className="lead--white">
             Campanhas de Google Ads construídas exclusivamente para clínicas de
             estética e harmonização facial — com estrutura de keywords por
             procedimento, anúncios que qualificam antes do clique e landing page
@@ -37,18 +31,22 @@ export default function SolucaoSection() {
 
         <div
           ref={boxRef}
-          className="reveal rounded-xl p-6 max-w-2xl"
+          className="reveal"
           style={{
             border: '1px solid rgba(212,175,55,0.4)',
-            background: 'rgba(212,175,55,0.05)',
+            background: 'rgba(212,175,55,0.06)',
+            borderRadius: '12px',
+            padding: '24px',
+            maxWidth: '640px',
+            marginTop: '32px',
           }}
         >
-          <p className="text-base md:text-lg font-body leading-relaxed text-white/90">
+          <p style={{ color: 'rgba(255,255,255,0.9)', margin: 0, lineHeight: 1.7 }}>
             A maioria das agências de estética foca em Meta Ads e criativos visuais.
             A ByTech3 domina Google Ads para este nicho —{' '}
-            <span className="font-semibold text-white">
+            <strong style={{ color: '#fff', fontWeight: 600 }}>
               o canal de maior intenção de compra, onde a concorrência da sua clínica ainda não chegou.
-            </span>
+            </strong>
           </p>
         </div>
       </div>
