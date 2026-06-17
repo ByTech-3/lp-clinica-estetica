@@ -15,8 +15,8 @@ export default function Navbar() {
   return (
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Navegação principal">
       <div className="navbar-inner">
-        <div className="navbar-logo" aria-label="ByTech3">
-          <span>ByTech<span style={{ color: '#D4AF37' }}>3</span></span>
+        <div className="navbar-logo">
+          <img src="/logo-bytech3.svg" alt="ByTech3" />
         </div>
         <a
           href={WHATSAPP_URL}

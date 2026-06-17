@@ -14,9 +14,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer-inner">
           <div>
-            <p className="footer-logo">
-              ByTech<span style={{ color: '#D4AF37' }}>3</span>
-            </p>
+            <div className="footer-logo">
+              <img src="/logo-bytech3.svg" alt="ByTech3" />
+            </div>
             <p className="footer-tagline">por tecnologia</p>
           </div>
 

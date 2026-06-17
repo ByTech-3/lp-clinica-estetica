@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ByTech3',
-  description: 'por tecnologia',
+  title: 'ByTech3 — Google Ads para Clínicas de Estética',
+  description: 'Diagnóstico gratuito de Google Ads para clínicas de estética. Veja o potencial do seu mercado antes de qualquer compromisso.',
+  icons: { icon: '/icon.svg' },
 }
 
 export default function RootLayout({
