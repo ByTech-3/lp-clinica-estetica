@@ -3,6 +3,26 @@
 import { useState, useEffect } from 'react'
 import { WHATSAPP_URL } from '@/lib/constants'
 
+function Logo() {
+  const [imgFailed, setImgFailed] = useState(false)
+
+  return imgFailed ? (
+    <span
+      className="font-display font-extrabold text-2xl text-white tracking-tight select-none"
+      aria-label="ByTech3"
+    >
+      ByTech<span style={{ color: '#D4AF37' }}>3</span>
+    </span>
+  ) : (
+    <img
+      src="/logo.svg"
+      alt="ByTech3"
+      className="h-8 w-auto"
+      onError={() => setImgFailed(true)}
+    />
+  )
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -23,13 +43,8 @@ export default function Navbar() {
         borderBottom: scrolled ? '1px solid rgba(212,175,55,0.15)' : 'none',
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <span
-          className="font-display font-extrabold text-2xl text-white tracking-tight select-none"
-          aria-label="ByTech3"
-        >
-          ByTech<span style={{ color: '#D4AF37' }}>3</span>
-        </span>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <Logo />
 
         <a
           href={WHATSAPP_URL}
@@ -37,7 +52,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="
             font-body font-semibold text-sm px-5 py-2.5 rounded-lg
-            bg-white text-navy-dark
+            bg-white text-[#0D1B2E]
             transition-all duration-200
             hover:-translate-y-0.5 hover:shadow-gold
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-white

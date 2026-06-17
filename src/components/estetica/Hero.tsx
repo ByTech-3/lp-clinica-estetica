@@ -1,18 +1,8 @@
-import { WHATSAPP_URL, CTA_LABEL } from '@/lib/constants'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 function SearchIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35" />
     </svg>
@@ -22,34 +12,25 @@ function SearchIcon() {
 export default function Hero() {
   return (
     <section
-      className="min-h-screen bg-navy-dark flex items-center pt-24 pb-16 px-4 sm:px-6"
+      className="min-h-screen bg-[#0D1B2E] flex items-center pt-24 pb-16"
       aria-label="Seção principal"
     >
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Copy */}
         <div>
-          <p
-            className="font-body font-medium text-gold uppercase mb-6"
-            style={{ fontSize: '0.75rem', letterSpacing: '0.1em' }}
-          >
+          <p className="text-xs md:text-sm font-body font-semibold tracking-widest uppercase text-[#D4AF37] mb-6">
             Google Ads para Clínicas de Estética
           </p>
 
-          <h1
-            className="font-display font-extrabold text-white mb-6"
-            style={{ fontSize: 'clamp(2rem, 8vw, 4rem)', lineHeight: 1.05 }}
-          >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight text-white mb-6">
             Toda semana, dezenas de pessoas na sua cidade buscam
             no Google o procedimento que você oferece.
             Quantas estão encontrando{' '}
-            <span className="gold-shimmer">a sua clínica</span>?
+            <span style={{ color: '#D4AF37' }}>a sua clínica</span>?
           </h1>
 
-          <p
-            className="font-body text-white/80 mb-8"
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', lineHeight: 1.65 }}
-          >
+          <p className="text-base md:text-lg font-body leading-relaxed text-white/80 mb-8">
             Enquanto a maioria das clínicas depende de indicação e Instagram,
             o Google já está cheio de pacientes com decisão tomada — procurando
             ativamente onde agendar. A ByTech3 coloca a sua clínica na frente delas.
@@ -62,14 +43,14 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="
                 w-full sm:w-auto text-center
-                bg-white text-navy-dark font-body font-bold
-                px-8 py-4 rounded-xl text-base
+                bg-white text-[#0D1B2E] font-body font-semibold
+                px-8 py-4 rounded-lg text-base
                 transition-all duration-200
                 hover:-translate-y-0.5 hover:shadow-lg
                 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white
               "
             >
-              {CTA_LABEL}
+              Quero meu diagnóstico gratuito →
             </a>
             <span className="font-body text-white/60 text-sm">
               Sem compromisso · Resposta em até 2h
@@ -80,7 +61,7 @@ export default function Hero() {
         {/* Google search card mock — desktop only */}
         <div className="hidden lg:block" aria-hidden="true">
           <div
-            className="rounded-xl p-5 select-none"
+            className="rounded-2xl p-6 select-none"
             style={{
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(212,175,55,0.2)',
@@ -98,14 +79,14 @@ export default function Hero() {
               <span className="text-white/30 text-base leading-none">×</span>
             </div>
 
+            {/* Separação */}
+            <div className="border-t mb-5" style={{ borderColor: 'rgba(255,255,255,0.08)' }} />
+
             {/* Resultado de anúncio */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <span
-                className="inline-block font-body text-[11px] font-medium px-1.5 py-0.5 rounded"
-                style={{
-                  border: '1px solid rgba(212,175,55,0.4)',
-                  color: 'rgba(212,175,55,0.85)',
-                }}
+                className="inline-block font-body text-[11px] font-medium px-2 py-0.5 rounded"
+                style={{ border: '1px solid rgba(212,175,55,0.45)', color: 'rgba(212,175,55,0.9)' }}
               >
                 Anúncio
               </span>

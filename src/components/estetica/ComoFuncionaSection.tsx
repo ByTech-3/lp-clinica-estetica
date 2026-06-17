@@ -22,19 +22,18 @@ const steps = [
 ]
 
 export default function ComoFuncionaSection() {
-  const titleRef = useScrollReveal()
-  const stepsRef = useScrollReveal()
-  const ctaRef   = useScrollReveal()
+  const titleRef = useScrollReveal<HTMLHeadingElement>()
+  const stepsRef = useScrollReveal<HTMLDivElement>()
+  const ctaRef   = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="bg-white py-20 px-4 sm:px-6" aria-label="Como funciona">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-white py-20 md:py-28" aria-label="Como funciona">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <span className="gold-line" />
 
         <h2
           ref={titleRef}
-          className="reveal font-display font-bold text-navy-dark mb-14"
-          style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: 1.1 }}
+          className="reveal text-3xl md:text-4xl font-display font-bold leading-tight text-[#0D1B2E] mb-14"
         >
           Como funciona
         </h2>
@@ -42,37 +41,31 @@ export default function ComoFuncionaSection() {
         {/* Steps */}
         <div
           ref={stepsRef}
-          className="reveal stagger relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14"
+          className="reveal stagger grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-14"
         >
-          {/* Linha conectora — desktop */}
-          <div
-            className="hidden md:block absolute top-8 left-[calc(16.666%+1rem)] right-[calc(16.666%+1rem)] h-px"
-            style={{ background: 'rgba(212,175,55,0.25)' }}
-            aria-hidden="true"
-          />
-
-          {steps.map((s) => (
-            <div key={s.num} className="flex flex-col gap-4">
-              <span
-                className="font-display font-extrabold"
-                style={{
-                  fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
-                  color: '#D4AF37',
-                  lineHeight: 1,
-                }}
-              >
-                {s.num}
-              </span>
-              <h3
-                className="font-display font-bold text-navy-dark"
-                style={{ fontSize: 'clamp(1.125rem, 3vw, 1.375rem)' }}
-              >
+          {steps.map((s, i) => (
+            <div key={s.num} className="flex flex-col">
+              {/* Número + linha conectora */}
+              <div className="flex items-center gap-4 mb-4">
+                <span
+                  className="text-5xl font-display font-extrabold leading-none"
+                  style={{ color: '#D4AF37' }}
+                >
+                  {s.num}
+                </span>
+                {/* Linha conectora apenas entre os números no desktop */}
+                {i < steps.length - 1 && (
+                  <div
+                    className="hidden md:block flex-1 border-t border-dashed"
+                    style={{ borderColor: 'rgba(212,175,55,0.3)' }}
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+              <h3 className="text-xl font-display font-bold text-[#1A2F4B] mb-3">
                 {s.title}
               </h3>
-              <p
-                className="font-body text-slate"
-                style={{ fontSize: 'clamp(0.9375rem, 2.5vw, 1rem)', lineHeight: 1.65 }}
-              >
+              <p className="text-base font-body leading-relaxed text-[#4F4F4F]">
                 {s.body}
               </p>
             </div>
@@ -86,11 +79,11 @@ export default function ComoFuncionaSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              font-body font-semibold text-navy-dark
-              border-2 border-navy px-8 py-3.5 rounded-xl
+              font-body font-semibold text-[#1A2F4B]
+              border-2 border-[#1A2F4B] px-8 py-3.5 rounded-xl
               transition-all duration-200
-              hover:bg-navy hover:text-white hover:-translate-y-0.5 hover:shadow-card
-              focus-visible:outline focus-visible:outline-2 focus-visible:outline-navy
+              hover:bg-[#1A2F4B] hover:text-white hover:-translate-y-0.5
+              focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1A2F4B]
             "
           >
             Quero ver o volume de busca na minha cidade →

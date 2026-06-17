@@ -22,48 +22,29 @@ const faqs = [
   },
 ]
 
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className="shrink-0 transition-transform duration-300"
-      style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
-    >
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  )
-}
-
 function AccordionItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div
-      className="border-b"
-      style={{ borderColor: '#E5E5E5' }}
-    >
+    <div className="border-b border-gray-200 py-5">
       <button
         onClick={() => setOpen(!open)}
-        className="
-          w-full flex items-center justify-between gap-4
-          py-5 text-left
-          font-body font-semibold text-navy-dark
-          hover:text-navy transition-colors duration-200
-          focus-visible:outline focus-visible:outline-2 focus-visible:outline-navy
-        "
+        className="w-full flex justify-between items-center gap-4 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1A2F4B]"
         aria-expanded={open}
-        style={{ fontSize: 'clamp(0.9375rem, 2.5vw, 1.0625rem)' }}
       >
-        <span>{q}</span>
-        <ChevronIcon open={open} />
+        <span className="font-display font-semibold text-[#1A2F4B] text-lg leading-snug">
+          {q}
+        </span>
+        <span
+          className="text-xl font-bold shrink-0 transition-transform duration-300 leading-none"
+          style={{
+            color: '#D4AF37',
+            transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
+          }}
+          aria-hidden="true"
+        >
+          +
+        </span>
       </button>
 
       <div
@@ -71,10 +52,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
         style={{ maxHeight: open ? '400px' : '0px' }}
         aria-hidden={!open}
       >
-        <p
-          className="font-body text-slate pb-5"
-          style={{ fontSize: 'clamp(0.9375rem, 2.5vw, 1rem)', lineHeight: 1.7 }}
-        >
+        <p className="text-base font-body leading-relaxed text-[#4F4F4F] mt-3">
           {a}
         </p>
       </div>
@@ -83,23 +61,22 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function ObjecoesSection() {
-  const titleRef = useScrollReveal()
-  const listRef  = useScrollReveal()
+  const titleRef = useScrollReveal<HTMLHeadingElement>()
+  const listRef  = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="bg-offwhite py-20 px-4 sm:px-6" aria-label="Perguntas frequentes">
-      <div className="max-w-2xl mx-auto">
+    <section className="bg-[#F8F7F4] py-20 md:py-28" aria-label="Perguntas frequentes">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <span className="gold-line" />
 
         <h2
           ref={titleRef}
-          className="reveal font-display font-bold text-navy-dark mb-10"
-          style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: 1.1 }}
+          className="reveal text-3xl md:text-4xl font-display font-bold leading-tight text-[#0D1B2E] mb-10"
         >
           Perguntas frequentes
         </h2>
 
-        <div ref={listRef} className="reveal">
+        <div ref={listRef} className="reveal max-w-3xl">
           {faqs.map((faq) => (
             <AccordionItem key={faq.q} q={faq.q} a={faq.a} />
           ))}

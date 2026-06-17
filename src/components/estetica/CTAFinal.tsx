@@ -1,26 +1,7 @@
 'use client'
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-import { WHATSAPP_URL, CTA_LABEL, CTA_MICROCOPY } from '@/lib/constants'
-
-function CheckIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className="shrink-0 mt-0.5 text-gold"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  )
-}
+import { WHATSAPP_URL } from '@/lib/constants'
 
 const items = [
   'Volume mensal de buscas para seus procedimentos na sua cidade',
@@ -29,43 +10,31 @@ const items = [
 ]
 
 export default function CTAFinal() {
-  const contentRef = useScrollReveal()
+  const contentRef = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section
-      className="bg-navy-dark py-24 px-4 sm:px-6"
-      aria-label="Chamada final para diagnóstico"
-    >
+    <section className="bg-[#0D1B2E] py-24 md:py-32" aria-label="Chamada final para diagnóstico">
       <div
         ref={contentRef}
-        className="reveal max-w-2xl mx-auto text-center"
+        className="reveal max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
-        <h2
-          className="font-display font-extrabold text-white mb-6"
-          style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: 1.1 }}
-        >
+        <h2 className="text-3xl md:text-4xl font-display font-extrabold leading-tight text-white mb-6">
           Veja quantas pacientes estão procurando
           seus procedimentos{' '}
           <span className="gold-shimmer">agora</span>.
         </h2>
 
-        <p
-          className="font-body text-white/80 mb-8"
-          style={{ fontSize: 'clamp(1rem, 2.5vw, 1.0625rem)', lineHeight: 1.65 }}
-        >
+        <p className="text-base md:text-lg font-body leading-relaxed text-white/80 mb-8 max-w-xl mx-auto">
           Diagnóstico gratuito — sem compromisso, sem contrato, sem promessa vaga.
           Você vê os dados do seu mercado. Decide com informação.
         </p>
 
         {/* Lista do que inclui */}
-        <ul className="text-left inline-flex flex-col gap-3 mb-10">
+        <ul className="space-y-3 mt-8 text-left max-w-sm mx-auto mb-10">
           {items.map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <CheckIcon />
-              <span
-                className="font-body text-white/85"
-                style={{ fontSize: 'clamp(0.9375rem, 2.5vw, 1rem)', lineHeight: 1.6 }}
-              >
+            <li key={item} className="flex items-center gap-3">
+              <span className="text-[#D4AF37] font-bold text-lg shrink-0" aria-hidden="true">✓</span>
+              <span className="font-body text-white/85 text-base leading-relaxed">
                 {item}
               </span>
             </li>
@@ -73,24 +42,24 @@ export default function CTAFinal() {
         </ul>
 
         {/* CTA */}
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 mt-10">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="
               w-full sm:w-auto text-center
-              bg-white text-navy-dark font-body font-bold
-              px-10 py-5 rounded-xl text-base
-              transition-all duration-200
-              hover:-translate-y-0.5 hover:shadow-lg
+              bg-white text-[#0D1B2E] font-body font-bold text-lg
+              px-10 py-5 rounded-xl
+              transition-colors duration-200
+              hover:bg-[#D4AF37] hover:text-[#0D1B2E]
               focus-visible:outline focus-visible:outline-2 focus-visible:outline-white
             "
           >
-            {CTA_LABEL}
+            Quero meu diagnóstico gratuito →
           </a>
           <span className="font-body text-white/50 text-sm">
-            {CTA_MICROCOPY}
+            Abre WhatsApp direto · Resposta em até 2h em dias úteis
           </span>
         </div>
       </div>
