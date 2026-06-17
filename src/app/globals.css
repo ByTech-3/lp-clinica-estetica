@@ -148,8 +148,8 @@ img { max-width: 100%; display: block; }
   color: #fff;
   letter-spacing: -0.02em;
 }
-.navbar-logo img { height: 52px; width: auto; display: block; }
-.footer-logo img  { height: 44px; width: auto; display: block; }
+.navbar-logo img { height: 44px; width: auto; display: block; }
+.footer-logo img  { height: 52px; width: auto; display: block; }
 
 /* ── HERO ───────────────────────────────── */
 .hero {
