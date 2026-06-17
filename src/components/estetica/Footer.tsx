@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="footer-logo">
               <img src="/logo-bytech3.svg" alt="ByTech3" />
             </div>
-            <p className="footer-tagline">por tecnologia</p>
+          
           </div>
 
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="footer-wa">
