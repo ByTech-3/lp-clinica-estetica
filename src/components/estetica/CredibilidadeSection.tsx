@@ -53,6 +53,22 @@ export default function CredibilidadeSection() {
           agências generalistas ainda não chegou.
         </p>
 
+        <div style={{
+          border: '1px solid rgba(212,175,55,0.4)',
+          background: 'rgba(212,175,55,0.06)',
+          borderRadius: '12px',
+          padding: '24px',
+          margin: '32px 0',
+        }}>
+          <p style={{ color: 'rgba(255,255,255,0.9)' }}>
+            Em 2023, o CFM (Resolução 2.336) liberou médicos para anunciar preços
+            e resultados de antes/depois com fins educativos. Isso abriu o leilão
+            de anúncios para profissionais que antes não podiam competir — e a
+            concorrência está entrando agora. Quem ocupa o espaço primeiro, paga
+            menos por ele.
+          </p>
+        </div>
+
         <div ref={pillarsRef} className="pillars-grid reveal stagger">
           {pillars.map(({ icon, title, body }) => (
             <div key={title} className="pillar">

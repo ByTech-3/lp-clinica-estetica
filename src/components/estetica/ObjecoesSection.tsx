@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: '"E se eu investir e não ver resultado?"',
-    a: 'Por isso existe o diagnóstico gratuito: você vê o potencial do mercado antes de qualquer compromisso. Se depois do primeiro mês você sentir que não faz sentido continuar, encerramos sem multa — e a conta Google Ads configurada fica com você.',
+    a: 'Por isso existe o diagnóstico gratuito: você vê o potencial do mercado antes de qualquer compromisso. Não exigimos fidelidade mínima de mensalidade — você pode encerrar quando quiser. A partir do início do 3º mês de parceria ativa, toda a estrutura construída (landing page, conta Google Ads e rastreamento) é transferida integralmente para você.',
   },
   {
     q: '"Não tenho tempo para acompanhar uma agência."',

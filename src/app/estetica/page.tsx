@@ -6,6 +6,7 @@ import SolucaoSection       from '@/components/estetica/SolucaoSection'
 import ComoFuncionaSection  from '@/components/estetica/ComoFuncionaSection'
 import IncluiSection        from '@/components/estetica/IncluiSection'
 import CredibilidadeSection from '@/components/estetica/CredibilidadeSection'
+import ParaQuemESection     from '@/components/estetica/ParaQuemESection'
 import PrecosSection        from '@/components/estetica/PrecosSection'
 import ObjecoesSection      from '@/components/estetica/ObjecoesSection'
 import CTAFinal             from '@/components/estetica/CTAFinal'
@@ -23,6 +24,7 @@ export default function EsteticaPage() {
       <ComoFuncionaSection />
       <IncluiSection />
       <CredibilidadeSection />
+      <ParaQuemESection />
       <PrecosSection />
       <ObjecoesSection />
       <CTAFinal />
