@@ -1,7 +1,9 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-import { WHATSAPP_URL } from '@/lib/constants'
+import CTAButton from '@/components/ui/CTAButton'
+import { GTM } from '@/lib/gtm'
 
 const phases = [
   {
@@ -35,14 +37,34 @@ const phases = [
 ]
 
 export default function PrecosSection() {
-  const titleRef = useScrollReveal<HTMLHeadingElement>()
-  const cardsRef = useScrollReveal<HTMLDivElement>()
-  const mathRef  = useScrollReveal<HTMLDivElement>()
-  const boxRef   = useScrollReveal<HTMLDivElement>()
-  const ctaRef   = useScrollReveal<HTMLDivElement>()
+  const titleRef    = useScrollReveal<HTMLHeadingElement>()
+  const cardsRef    = useScrollReveal<HTMLDivElement>()
+  const mathRef     = useScrollReveal<HTMLDivElement>()
+  const boxRef      = useScrollReveal<HTMLDivElement>()
+  const ctaRef      = useScrollReveal<HTMLDivElement>()
+  const sectionRef  = useRef<HTMLElement>(null)
+  const pricingFired = useRef(false)
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting && !pricingFired.current) {
+            pricingFired.current = true
+            GTM.pricingView()
+            observer.unobserve(e.target)
+          }
+        }),
+      { threshold: 0.1, rootMargin: '0px 0px -64px 0px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="section section--white" aria-label="Investimento por fase">
+    <section ref={sectionRef} className="section section--white" aria-label="Investimento por fase">
       <div className="container">
         <span className="gold-line" />
 
@@ -101,14 +123,11 @@ export default function PrecosSection() {
         </div>
 
         <div ref={ctaRef} className="prices-cta reveal">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <CTAButton
+            label="Começar com o diagnóstico gratuito →"
+            location="precos"
             className="btn btn--outline"
-          >
-            Começar com o diagnóstico gratuito →
-          </a>
+          />
         </div>
       </div>
     </section>

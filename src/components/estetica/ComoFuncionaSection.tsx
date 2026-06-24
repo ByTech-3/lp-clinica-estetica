@@ -1,7 +1,7 @@
 'use client'
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-import { WHATSAPP_URL } from '@/lib/constants'
+import CTAButton from '@/components/ui/CTAButton'
 
 const steps = [
   {
@@ -44,14 +44,11 @@ export default function ComoFuncionaSection() {
         </div>
 
         <div ref={ctaRef} className="steps-cta reveal">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <CTAButton
+            label="Quero ver o volume de busca na minha cidade →"
+            location="como-funciona"
             className="btn btn--outline"
-          >
-            Quero ver o volume de busca na minha cidade →
-          </a>
+          />
         </div>
       </div>
     </section>

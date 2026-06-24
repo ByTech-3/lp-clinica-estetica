@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { WHATSAPP_URL } from '@/lib/constants'
+import CTAButton from '@/components/ui/CTAButton'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -18,15 +18,12 @@ export default function Navbar() {
         <div className="navbar-logo">
           <img src="/logo-bytech3.svg" alt="ByTech3" />
         </div>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <CTAButton
+          label="Diagnóstico gratuito"
+          location="navbar"
           className="btn btn--white"
           style={{ padding: '10px 22px', fontSize: '0.875rem' }}
-        >
-          Diagnóstico gratuito
-        </a>
+        />
       </div>
     </nav>
   )

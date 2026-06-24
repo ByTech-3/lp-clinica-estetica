@@ -1,4 +1,4 @@
-import { WHATSAPP_URL } from '@/lib/constants'
+import CTAButton from '@/components/ui/CTAButton'
 
 function SearchIcon() {
   return (
@@ -31,14 +31,10 @@ export default function Hero() {
             </p>
 
             <div className="hero-cta">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CTAButton
+                location="hero"
                 className="btn btn--white btn--full"
-              >
-                Quero meu diagnóstico gratuito →
-              </a>
+              />
               <span className="btn-micro">Sem compromisso · Resposta em até 2h</span>
             </div>
           </div>

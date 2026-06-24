@@ -1,7 +1,7 @@
 'use client'
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-import { WHATSAPP_URL } from '@/lib/constants'
+import CTAButton from '@/components/ui/CTAButton'
 
 const items = [
   'Volume mensal de buscas para seus procedimentos na sua cidade',
@@ -37,15 +37,11 @@ export default function CTAFinal() {
           </ul>
 
           <div className="cta-btn-wrap">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CTAButton
+              location="cta-final"
               className="btn btn--white"
               style={{ fontSize: '1.0625rem', padding: '16px 40px' }}
-            >
-              Quero meu diagnóstico gratuito →
-            </a>
+            />
             <span className="btn-micro">Abre WhatsApp direto · Resposta em até 2h em dias úteis</span>
           </div>
 
